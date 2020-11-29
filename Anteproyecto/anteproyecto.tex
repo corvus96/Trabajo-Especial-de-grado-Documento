@@ -272,7 +272,11 @@ Los investigadores compararon sus resultados con la tecnología del estado del a
 Desarrollar un paquete en Python para el posicionamiento de objetos en una escena empleando visión estereoscópica y técnicas de reconocimiento basadas en aprendizaje automático.
 \subsection*{Objetivo especifico}
 \begin{itemize}
-    \item Definir arquitectura de software y posibles patrones de diseño aplicables.
+    \item Describir al menos dos técnicas de reconocimiento basadas en aprendizaje automático empleadas en el posicionamiento de objetos.
+    \item Realizar el análisis de requerimientos necesarios del software a desarrollar.
+    \item Definir la arquitectura del software.
+    \item Definir los patrones de diseño aplicables.
+    \item Seleccionar el modelo de aprendizaje automático para el reconocimiento de imágenes en vídeo.
     \item Implementar el sistema de reconocimiento con Tensorflow/Keras y OpenCV, en el lenguaje de programación Python.
     \item Implementar un algoritmo para el posicionamiento, basado en el reconocimiento de objetos en la escena.
     \item Diseñar un banco de pruebas para la validación del paquete.
@@ -280,21 +284,27 @@ Desarrollar un paquete en Python para el posicionamiento de objetos en una escen
     \item Empaquetar el software para su distribución o instalación.
 \end{itemize}
 \section*{Metodología}
-Para la elaboración de este trabajo se seccionarán los conjuntos de tareas a realizar en 7 etapas:
+Para la elaboración de este trabajo se seccionarán los conjuntos de tareas a realizar en 10 etapas:
 \subsection*{Etapa 1: Documentación}
 En esta etapa se investigaran a profundidad los fundamentos de los algoritmos de reconocimiento basados en AA, los pasos necesarios para permitir la visión estéreo y las estrategias utilizadas al momento de desarrollar paquetes en Python.
-\subsection*{Etapa 2: Construcción y diseño del soporte físico para el sistema de adquisición de data}
-Utilizando los fundamentos aprendidos, se realizaran los esquemas de una estructura de soporte para las cámaras de teléfonos, dicha estructura debe permitir reajustar la distancia entre cámaras de ser necesario. Una vez diseñada, se utilizaran materiales reciclables para su construcción.
-\subsection*{Etapa 3: Estructuración del paquete}
-Una vez que se manejen las herramientas necesarias para el desarrollo del proyecto, se realizara un diagrama con la arquitectura del paquete, usando como base patrones de diseño de software.
-\subsection*{Etapa 4: Desarrollo del o los módulos de reconocimiento de objetos}
-Utilizando modelos pre-entrenados se procederá a diseñar un modulo independiente, que permita implementar un sistema de reconocimiento de objetos en una escena. Luego se elaborara un algoritmo que implemente las funciones o métodos contenidos en el modulo o los módulos para el reconocimiento, posteriormente se comprobara la eficacia de los modelos, comparándolos con imágenes de un conjunto de datos o "dataset".
-\subsection*{Etapa 5: Desarrollo de los módulos de visión estéreo}
+\subsection*{Etapa 2: Análisis de requerimientos, construcción y diseño del soporte físico para el sistema de adquisición de data}
+Utilizando los fundamentos aprendidos se analizaran los requerimientos del software a desarrollar y partir de ellos se realizaran los esquemas de una estructura de soporte para las cámaras de teléfonos, dicha estructura debe permitir reajustar la distancia entre cámaras de ser necesario. Una vez diseñada, se utilizarán materiales reciclables para su construcción.
+\subsection*{Etapa 3: Definir la arquitectura del software}
+Se realizara un diagrama donde se organicen los elementos necesarios para el funcionamiento del paquete, subdividiendo las partes del mismo en módulos independientes. Se definirán las pautas para la documentación del mismo, la forma en la que se realizaran las pruebas unitarias y se seleccionara el paquete que se empleara para permitir la posterior distribución.
+\subsection*{Etapa 4: Definir los patrones de diseño aplicables}
+Con los módulos subdivididos, se establecerán los patrones de diseño adecuados para cada modulo tomando en cuenta la relación existente entre los mismos. Esto permitirá la reutilización de código en los casos que se requiera resolver problemas recurrentes en el paquete.
+\subsection*{Etapa 5: Seleccionar el modelo de aprendizaje automático para el reconocimiento de imágenes en vídeo}
+De acuerdo con los métodos de reconocimientos estudiados en la etapa 1, se compararan los mismos para luego seleccionar el más adecuado, tomando en cuenta el software y hardware a disposición del autor.
+\subsection*{Etapa 6: Desarrollo del o los módulos de reconocimiento de objetos}
+Utilizando modelos pre-entrenados, se procederá a diseñar el o los módulos que permitan implementar un sistema de reconocimiento de objetos en una escena. Luego se elaborará un algoritmo que implemente las funciones o métodos contenidos en el modulo o los módulos para el reconocimiento, posteriormente se comprobará la eficacia de los modelos, comparándolos con imágenes de un conjunto de datos o "dataset".
+\subsection*{Etapa 7: Desarrollo de los módulos de visión estéreo}
 Se programaran para que puedan ser compatibles con los de reconocimiento o puedan implementarse sin utilizar el reconocimiento, de este modo podrá obtenerse un mapa de disparidad de toda la escena sin necesidad de requerir el modulo de reconocimiento, esto agrega flexibilidad en cuanto a funciones del paquete. Luego se elaborara un algoritmo que implemente las funciones o métodos contenidos en los módulos y posteriormente se comprobara el funcionamiento mediante un dataset de imágenes RGBD.
-\subsection*{Etapa 6: Implementación completa}
-Se elaborara el algoritmo que combine los módulos principales y se comprobara su funcionamiento en un entorno real mediante un banco de pruebas.
-\subsection*{Etapa 7: Documentación y distribución del paquete}
-Se elaborara una guía detallada del funcionamiento del paquete en el repositorio de github del autor y todo el código se hará siguiendo el formato de google enfocado en python (https://github.com/google/styleguide/blob/gh-pages/pyguide.md). Por último se procederá a empaquetar a empaquetar el software para su distribución.
+\subsection*{Etapa 8: Elaboración del banco de pruebas}
+En todo el desarrollo del software, se realizaran pruebas unitarias que permitan comprobar el funcionamiento independiente de los módulos ante diferentes entradas de datos. Y cuando todos los módulos sean completados se realizaran pruebas generales que permitan comprobar el correcto funcionamiento del paquete.
+\subsection*{Etapa 9: Creación de documento descriptivo}
+Empleando el paquete o los paquetes para la documentación seleccionados en la etapa 3, se desarrollara un documento descriptivo auto generado por python que permita ilustrar al usuario sobre la correcta utilización del software desarrollado. 
+\subsection*{Etapa 10: Distribución del paquete}
+Por último se procederá a empaquetar el software para su distribución.
 \section*{Alcance y limitaciones}
 El presente trabajo estará acotado en el desarrollo del paquete para el posicionamiento de objetos, en un entorno cerrado con la iluminación adecuada, para el correcto funcionamiento del modulo de reconocimiento. Se realizaran pruebas mediante cámaras de teléfono cuyos datos serán enviados a través de la aplicación gratuita de android IP webcam, para luego ser procesados en un computador o en un dispositivo embebido.
 \section*{Herramientas y equipos a utilizar}
@@ -306,14 +316,14 @@ Se poseen los siguientes elementos para la ejecución de este trabajo:
     \item Acceso a un servidor para el procesamiento en caso de requerir una mejor GPU.
 \end{itemize}
 \section*{Análisis de factibilidad}
-Para la realización de este trabajo se cuenta con la documentación necesaria, además de casos de estudio donde lograron implementar sistemas similares en computadores y microcontroladores de gama baja y media. En caso de requerir la potencia de procesamiento que ofrece un servidor en la nube, se tiene un internet estable. El autor ya posee cierto nivel de conocimiento en las áreas de visión por computador y aprendizaje automático. Por otro lado se cuenta con el apoyo del ingeniero Carlos Rodríguez el cual se comprometió en prestar ayuda en el área de aprendizaje automático mediante el framework Tensorflow/Keras.
+Para la realización de este trabajo se cuenta con la documentación necesaria, además de casos de estudio donde lograron implementar sistemas similares en computadores y microcontroladores de gama baja y media. En caso de requerir la potencia de procesamiento que ofrece un servidor en la nube, se tiene un internet estable. El autor ya posee cierto nivel de conocimiento en las áreas de visión por computador y aprendizaje automático. Por otro lado se cuenta con el apoyo del ingeniero Carlos Gonzalez el cual se comprometió en prestar ayuda en el área de aprendizaje automático mediante el framework Tensorflow/Keras.
 
 De ser necesaria alguna otra herramienta o equipo el autor cubrirá los gastos. Y la cantidad de tiempo que se propone se considera suficiente para la realización de este trabajo.
 \section*{Cronograma}
 En la siguiente Figura se observa la distribución de las etapas en  número de semanas:
 \begin{figure}[H]
     \centering
-    \includegraphics{Anteproyecto/cronogramaNuevo.png}
+    \includegraphics[scale=0.5]{Anteproyecto/cronograma.jpg}
     \caption{Cronograma de actividades}
     \label{cronograma}
 \end{figure}
