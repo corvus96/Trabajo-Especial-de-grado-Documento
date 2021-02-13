@@ -1,0 +1,23 @@
+\section{Diseño del soporte físico para el sistema de adquisición de data}
+En el caso de un sistema estereo se entiende por sistema de adquisicion de datos al conjunto compuesto por ambas camaras. De acuerdo con lo mencionado en el capitulo II, para seleccionar y ajustar dicho sistema es necesario tomar en cuenta: 
+\section{Diseño de la arquitectura del paquete}
+El paquete sera diseñado sobre el lenguaje de programación python y de ser necesario se utilizaran segmentos de códigos hechos en c++ para tareas que requieran un alto rendimiento, además de esto se emplearan las siguientes dependencias para agilizar y optimizar el desarrollo:
+\begin{itemize}
+    \item Numpy, Scipy, matplotlib, y pandas: para el manejo algebraico y presentación de los datos.
+    \item OpenCV: Para recibir la entrada de datos y exportar en formatos de video o imagen sea el caso.
+    \item Tensorflow/keras: como framework de machine learning.
+\end{itemize}
+\subsection{Requisitos del paquete}
+\begin{itemize}
+    \item El paquete debe ser agnostico en cuanto al tipo de entrada; es decir, debe ser capaz de aceptar 2 imagenes RGB o imagenes en blanco y negro o videos que pueden ser previamente grabados o  captados en el momento.
+    \item Debe poseer un modulo que permita realizar varias técnicas de preprocesamiento para mejorar la calidad de las imágenes captadas, esto en pro de mejorar la inferencia de los modelos.
+    \item Por medio de un API (Application program Interface) debe ser capaz de construir redes neuronales con diferentes arquitecturas basadas en redes ya empleadas para las tareas de reconocimiento y calculo del mapa de disparidad.
+    \item El modulo o los modulos de reconocimiento deben estar basados en modelos pre-entrenados, puesto que su papel es reconocer objetos en una escena unicamente. De modo que los modulos de calculo de profundidad tendran una mayor personalización y requeriran entrenamiento.
+    \item Debe existir un modulo que realice una rapida implementación del paquete utilizando al menos dos de las metodologias de aprendizaje automatico estudiadas.
+    \item Debe existir un modulo que permita cargar dataset empleados en vision estereo como lo son: KITTI, Middlebury, .....
+    \item Debe existir un modulo compuesto por varios submodulos que separen el proceso de entrenamiento de una red para el calculo del mapa de disparidad, de acuerdo con las etapas descritas en el capitulo II: extracción de características, correspondencia de caracteristicas, regularizacion del costo y refinamiento.
+    \item Debe existir un modulo que active o desactive la posibilidad de usar la GPU en el entrenamiento
+    \item Debe existir un modelo que permita cargar modelos pre-entrenados con el fin de probar infraestructuras conocidas.
+    \item Por ultimo el paquete debe ser capaz de entregar como salida la inferencia de los módulos de reconocimiento o los mapas de disparidad finales o la posición en el espacio de un objeto o los objetos detectados por el modulo de reconocimiento.
+    \item El paquete debe contar con un banco de pruebas unitarias y se capaz de autodomentarse a medida que se realiza el codigo.
+\end{itemize}
