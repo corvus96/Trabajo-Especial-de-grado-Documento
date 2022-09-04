@@ -6,7 +6,6 @@
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}  %Estilo de fuente time new roman
-
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -243,7 +242,7 @@ citestyle=numeric
 {\cleardoublepage \thispagestyle{empty} \vspace*{\stretch{1}}%
 \begin{center} \em} {\end{center} \vspace*{\stretch{3}} }%
 \begin{dedication}%
-Escriba una dedicatoria aquí.
+A mi madre Yuraima que con su amor, paciencia y esfuerzo me ha permitido alcanzar hoy un sueño mas y a mi hermana María que siempre me ha apoyado y creído en mi incluso cuando nadie mas creía en mi.
 \end{dedication}%
 \newpage
 %==================================================================
@@ -251,7 +250,7 @@ Escriba una dedicatoria aquí.
 %\markboth{Reconocimientos}{Reconocimientos}%
 \addcontentsline{toc}{chapter}{RECONOCIMIENTOS Y AGRADECIMIENTOS}%
 %\setlength{\parskip}{0.2cm}%
-%\input{agradecimientos.tex}%
+\input{agradecimientos.tex}%
 %======================= Página de Resumen ==========================
 \newpage
 \renewcommand*{\abstract}{\begin{center}\end{center}}
@@ -259,24 +258,29 @@ Escriba una dedicatoria aquí.
 \begin{spacing}{1}
 \begin{center}%
 
-\textbf{Autor del Trabajo de Grado}
+\textbf{Guillermo Jose Raven Lusinche}
 
 \begin{large}
-\textbf{Título del Trabajo de Grado}
+\textbf{Desarrollo de un paquete en Python para el posicionamiento de objetos en una escena mediante visión estereoscópica y técnicas de reconocimiento basadas en aprendizaje automático}
 \end{large}
 \end{center}
 
 %\noindent%
-\textbf{Profesora Guía: Tamara Pérez. Tesis.
+\justifying
+\textbf{Tutora: Tamara Pérez. Tesis.
 Caracas, Universidad Central de Venezuela. Facultad de Ingeniería.
-Escuela de Ingeniería Eléctrica. Mención Electrónica, Computación y Control. Año 2021,
-xvii, 144 pp.}
+Escuela de Ingeniería Eléctrica. Mención Electrónica, Computación y Control. Año 2022}
 
 %\noindent
-\textbf{Palabras Claves:} Palabras clave. \\[1ex]
-
 %\noindent \textbf{Resumen.-} Escribe acá tu resumen
+Se creó el paquete de Python ``Py2vision'', el cual puede determinar las coordenadas homogéneas de un objeto detectado por la red neuronal YOLO V3. Además de dicha arquitectura de red, emplea el algoritmo semi-global block matching (SGBM) para determinar los mapas de disparidad y los refina con un filtro de mínimos cuadrados ponderados, para finalmente aplicar la segmentación binaria de Otsu dentro de cada ventana de detección y son estos píxeles segmentados, los que se utilizan para hallar la posición real del objeto en el espacio 3D. 
+\vspace{0.2cm}
 
+El paquete tiene la suficiente flexibilidad para que los módulos principales como lo son el estéreo y el de reconocimiento, sean independientes uno del otro. A su vez, cuenta con la documentación necesaria de cada función y un conjunto de tutoriales ejecutables en Google colab, que explican como utilizar los principales componentes, por este motivo es recomendable profundizar en el estudio de estas técnicas colaborando en el desarrollo de nuevas funcionalidades para dicho software, que utilicen diferentes estrategias estéreo y otros modelos de reconocimiento.
+
+\vspace{0.2cm}
+
+\textbf{Palabras Claves:} Python, paquete, mapa de disparidad, YOLO V3, coordenadas homogeneas, estereo, reconocimiento. \\[1ex]
 \end{spacing}
 
 %\underline{RESUMEN}
@@ -320,49 +324,48 @@ xvii, 144 pp.}
 \input{ch1.tex}%
 
 %==================================================================
-\chapter{MARCO METODOLÓGICO}\label{CAP:met}
+\chapter{DESCRIPCIÓN DEL SISTEMA DE ADQUISICIÓN DE DATOS}\label{CAP:hardware}
 %\markboth{Tu Segundo Capítulo}{Tu Segundo Capítulo}%
 \input{ch3.tex}%
 
 %==================================================================
-\chapter{DESCRIPCIÓN DEL MODELO}\label{CAP:mod}
+\chapter{DESCRIPCIÓN DEL ENTORNO DE TRABAJO DEL PAQUETE}\label{CAP:entorno}
 %\markboth{Tu Segundo Capítulo}{Tu Segundo Capítulo}%
-%\input{ch4.tex}
+  \input{ch4.tex}
+%==================================================================  
+\chapter{IMPLEMENTACIÓN DEL SOFTWARE}\label{CAP:software}
+%\markboth{Tu Segundo Capítulo}{Tu Segundo Capítulo}%
+  \input{ch5.tex}
 
 %==================================================================
-\chapter{PRUEBAS EXPERIMENTALES}\label{CAP:exp}
+\chapter{PRUEBAS EXPERIMENTALES Y ANÁLISIS DE RESULTADOS}\label{CAP:resultados}
 %\markboth{Tu Segundo Capítulo}{Tu Segundo Capítulo}%
-%\input{ch5.tex}
-
-%==================================================================
-\chapter{RESULTADOS}\label{CAP:resultados}
-%\markboth{Tu Segundo Capítulo}{Tu Segundo Capítulo}%
-%\input{resultados.tex}
+\input{pruebas_analisis_resultados.tex}
 
 %==================================================================
 \chapter{CONCLUSIONES}\label{CAP:conclu}
 %\markboth{Tu Segundo Capítulo}{Tu Segundo Capítulo}%
-%\input{conclusiones.tex}
+\input{conclusiones.tex}
 
 %==================================================================
 \chapter{RECOMENDACIONES}\label{CAP:recomendaciones}
 %\markboth{Tu Segundo Capítulo}{Tu Segundo Capítulo}%
-%\input{recomendaciones.tex}
+\input{recomendaciones.tex}
 
 \appendix
 %==================================================================
-\chapter{TÍTULO DEL ANEXO}\label{CAP:anexo0}
+\chapter{MANUAL DE USO DEL PAQUETE}\label{CAP:anexo0}
 %\markboth{Tu anexo}{Tu anexo}%
-%\input{apendice0.tex}%
+\input{anexos/manual.tex}%
 
 %==================================================================
-\chapter{TÍTULO DEL ANEXO}\label{CAP:anexo1}
+\chapter{HERRAMIENTAS ADICIONALES DEL PAQUETE}\label{CAP:anexo1}
 %\markboth{Tu anexo}{Tu anexo}%
-%\input{apendice1.tex}%
+\input{anexos/utils.tex}%
 
 %\backmatter
 %==================================================================
-\chapter{TÍTULO DEL ANEXO}\label{CAP:anexo2}
+%\chapter{TÍTULO DEL ANEXO}\label{CAP:anexo2}
 %\markboth{Tu anexo}{Tu anexo}%
 %\input{apendice2.tex}%
 
