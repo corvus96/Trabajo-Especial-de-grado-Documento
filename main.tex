@@ -11,7 +11,7 @@
 \usepackage{amsmath}
 \usepackage{latexsym}
 \usepackage[letterpaper]{geometry}
-
+\usepackage{pdfpages}
 \usepackage{float}
 \usepackage{makeidx}
 \usepackage{color}
@@ -237,14 +237,13 @@ citestyle=numeric
 \end{figure}
 \thispagestyle{empty}
 %======================= Página de Dedicatoria ======================
-\newpage%
+\includepdf[pages=-]{carta_aprobacion.pdf}
 \newenvironment{dedication}%
-{\cleardoublepage \thispagestyle{empty} \vspace*{\stretch{1}}%
+{ \vspace*{\stretch{1}}%
 \begin{center} \em} {\end{center} \vspace*{\stretch{3}} }%
 \begin{dedication}%
 A mi madre Yuraima que con su amor, paciencia y esfuerzo me ha permitido alcanzar hoy un sueño mas y a mi hermana María que siempre me ha apoyado y creído en mi incluso cuando nadie mas creía en mi.
 \end{dedication}%
-\newpage
 %==================================================================
 \chapter*{RECONOCIMIENTOS Y AGRADECIMIENTOS}
 %\markboth{Reconocimientos}{Reconocimientos}%
@@ -273,14 +272,9 @@ Escuela de Ingeniería Eléctrica. Mención Electrónica, Computación y Control
 
 %\noindent
 %\noindent \textbf{Resumen.-} Escribe acá tu resumen
-Se creó el paquete de Python ``Py2vision'', el cual puede determinar las coordenadas homogéneas de un objeto detectado por la red neuronal YOLO V3. Además de dicha arquitectura de red, emplea el algoritmo semi-global block matching (SGBM) para determinar los mapas de disparidad y los refina con un filtro de mínimos cuadrados ponderados, para finalmente aplicar la segmentación binaria de Otsu dentro de cada ventana de detección y son estos píxeles segmentados, los que se utilizan para hallar la posición real del objeto en el espacio 3D. 
-\vspace{0.2cm}
+Se desarrolló el paquete de \textit{Python} \textit{Py2vision}, para el posicionamiento de objetos en una escena, empleando visión estereoscópica mediante el algoritmo de correspondencia \textit{semi-global block matching} (SGBM) y técnicas de reconocimiento basadas en aprendizaje automático. Se compararon dos tipos de técnicas de reconocimiento, una enfocada en segmentación que utiliza la red neuronal DeepLab y otra fundamentada en detección que emplea la red YOLO V3, se seleccionó la red YOLO V3, ya que realiza predicciones en una menor cantidad de tiempo permitiendo así detectar objetos en vídeo. Se analizaron las cualidades del software y hardware necesario para la realización del paquete, lo que permitió definir su arquitectura en módulos independientes que separan las funcionalidades estéreo de aquellas que emplean redes neuronales, al mismo tiempo que se aplicaron patrones de diseño tomando en cuenta las consideraciones impuestas por Alexander Shvets \cite{shvets_2019}. Bajo dichas consideraciones se implementó un algoritmo para el posicionamiento, basado en el reconocimiento de objetos en la escena, el cual utiliza la mayoría de los módulos del paquete debidamente evaluados mediante pruebas unitarias por cada fichero y pruebas experimentales, cabe resaltar que estas últimas se pueden observar en el capítulo VI. Una vez que el software supero todas las pruebas se elaboró un documento descriptivo (https://corvus96.github.io/PyTwoVision/html/index.html) y se empaquetó para luego distribuirlo en el \textit{Python Package Index}.
 
-El paquete tiene la suficiente flexibilidad para que los módulos principales como lo son el estéreo y el de reconocimiento, sean independientes uno del otro. A su vez, cuenta con la documentación necesaria de cada función y un conjunto de tutoriales ejecutables en Google colab, que explican como utilizar los principales componentes, por este motivo es recomendable profundizar en el estudio de estas técnicas colaborando en el desarrollo de nuevas funcionalidades para dicho software, que utilicen diferentes estrategias estéreo y otros modelos de reconocimiento.
-
-\vspace{0.2cm}
-
-\textbf{Palabras Claves:} Python, paquete, mapa de disparidad, YOLO V3, coordenadas homogeneas, estereo, reconocimiento. \\[1ex]
+\textbf{Palabras Claves:} Python, paquete, SGBM, YOLO V3, estéreo, patrones de diseño, detección, segmentación. \\[1ex]
 \end{spacing}
 
 %\underline{RESUMEN}
@@ -291,7 +285,7 @@ El paquete tiene la suficiente flexibilidad para que los módulos principales co
 \newpage
 %====================== Páginas de Contenidos =====================
 \addtocounter{page}{3}%
-\setlength{\parskip}{3pt}% Separación entre párrafos
+\setlength{\parskip}{2pt}% Separación entre párrafos
 \tableofcontents%
 \listoffigures%
 \listoftables%
@@ -324,13 +318,13 @@ El paquete tiene la suficiente flexibilidad para que los módulos principales co
 \input{ch1.tex}%
 
 %==================================================================
-\chapter{DESCRIPCIÓN DEL SISTEMA DE ADQUISICIÓN DE DATOS}\label{CAP:hardware}
+\chapter{DISEÑO DE LA ARQUITECTURA DEL PAQUETE}\label{CAP:entorno}
 %\markboth{Tu Segundo Capítulo}{Tu Segundo Capítulo}%
 \input{ch3.tex}%
 
 %==================================================================
-\chapter{DESCRIPCIÓN DEL ENTORNO DE TRABAJO DEL PAQUETE}\label{CAP:entorno}
 %\markboth{Tu Segundo Capítulo}{Tu Segundo Capítulo}%
+\chapter{DESCRIPCIÓN DEL HARDWARE NECESARIO}\label{CAP:hardware}
   \input{ch4.tex}
 %==================================================================  
 \chapter{IMPLEMENTACIÓN DEL SOFTWARE}\label{CAP:software}
@@ -365,9 +359,9 @@ El paquete tiene la suficiente flexibilidad para que los módulos principales co
 
 %\backmatter
 %==================================================================
-%\chapter{TÍTULO DEL ANEXO}\label{CAP:anexo2}
+\chapter{ALGORITMO DE NON MAXIMUM SUPPRESSION}\label{CAP:anexo2}
 %\markboth{Tu anexo}{Tu anexo}%
-%\input{apendice2.tex}%
+\input{anexos/nms.tex}%
 
 
 
